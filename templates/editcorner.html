@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% block content %}
+	<div class="change-button">
+		<h1>Edit Corner</h1>
+		<form action="{{url_for('editCorner', name = editCorner.name)}}" method="post">
+			<label>Picture</label>
+			<input type="text" name="image" value="{{editCorner.picture}}" ><br><br>
+			<input type="submit" value="Save">&ensp;
+			<a href="{{url_for('showCorner', category_name = editCorner.name)}}">Cancel</a>
+		</form>
+	</div>
+{% endblock %}

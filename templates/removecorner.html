@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% block content %}
+	<div class="change-button">
+		<form action="{{url_for('showCorner', category_name = name)}}", method="get">
+			<label>Are you sure you want to delete {{ name }}?</label><br>
+			<input type="submit" value="NO">
+		</form><br>
+		<form action="{{url_for('removeCorner', name = name)}}", method="post">
+			<input type="submit" value="YES">
+		</form>
+	</div>
+{% endblock %}

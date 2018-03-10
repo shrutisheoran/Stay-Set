@@ -1,0 +1,97 @@
+html {
+	min-height: 100%;
+}
+
+body {
+	background: linear-gradient(to top right, #f6c4ff, #95defea3);
+	font-family: cursive;
+	color: #242433;
+}
+
+a {
+	color: slateblue;
+}
+
+a:hover {
+	color: dodgerblue;
+}
+
+.home-page-images {
+	border-radius: 400px;
+}
+.image-links:hover {
+	box-shadow: 3px 3px 10px 6px #ffdcff;
+}
+
+.links:hover {
+	box-shadow: 3px 3px 10px 6px #ffdcff;
+	text-decoration: none;
+}
+
+.links {
+	background: linear-gradient(to top right, lightgray, skyblue);
+	border: 2px inset #9999e6;
+	padding: 8px;
+}
+
+.navbar-styling {
+	overflow: none;
+	background: #e6dafa;
+	border: 2px inset #9999e6;
+	color: black;
+}
+
+.flash {
+	padding: 15px;
+	background: linear-gradient(to top right, lightblue, skyblue);
+	color: black;
+}
+
+h3 {
+	display: block;
+	text-shadow: 2px 2px #f4c3dd;
+}
+
+.mail-link {
+	font-size: 20px;
+}
+
+.change-button {
+	background: #f3f1f8;
+	margin: 4% 25% 20% 20%;
+	padding: 5%;
+	box-shadow: 10px 10px 30px gray;
+	min-width: 30%;
+	min-height: 30%;
+}
+
+.change-button:hover{
+	box-shadow: 3px 2px 10px 3px lightgray;
+}
+
+.login {
+	background: #f3f1f8;
+	margin: 4% 25% 20% 20%;
+	padding: 5%;
+	box-shadow: 10px 10px 30px gray;
+	min-width: 53%;
+	min-height: 40%;
+}
+
+.google-login {
+	box-shadow: 2px 2px 10px slateblue;
+	padding: 5%;
+	background: slateblue;
+	height: auto;
+	width: auto;
+}
+
+.fb-login {
+	box-shadow: 2px 2px 10px dodgerblue;
+	margin-top: 2%;
+	padding: 5%;
+	background: dodgerblue; 
+	height: auto;
+	width: auto;
+	align-content: center;
+}

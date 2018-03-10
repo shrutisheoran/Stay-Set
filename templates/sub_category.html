@@ -1,0 +1,59 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+{% if login == "creator" %}
+<div class="row">
+	<div class="col-md-12">
+		<br><a class="links" href="{{url_for('editCorner', name = category.name)}}">Edit Corner</a><br><br>
+		<a class="links" href="{{url_for('removeCorner', name = category.name)}}">Remove Corner</a><br>
+	</div>
+</div>
+{% endif %}
+{% if category.id<=2 %}
+<div class="row">
+	<div class="col-md-12">
+		<h1 align="center">{{ category.name }}'s Corner</h1>
+	</div>
+</div>
+{% else %}
+<div class="row">
+	<div class="col-md-12">
+		<h1 align="center">{{ category.name }}' Corner</h1>
+	</div>
+</div>
+{% endif %}
+<div class="row">
+	<div class="col-md-12">
+		<ul>
+			{% for subCategory in sub_category %}
+			<div class="col-md-6">
+				<li style="display: block" background="{{sub_category.picture}}">
+					<a href="{{url_for('showItems', category_name = category.name, sub_category_name = subCategory.name)}}">
+						{{subCategory.name}}
+					</a><br>
+					<a href="{{url_for('showItems', category_name = category.name, sub_category_name = subCategory.name)}}"><img class="image-links" src="{{subCategory.picture}}" alt="{{subCategory.name}}" height="250" width="300"><br></a><br>
+				</li>
+			</div>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
+{% if login %}
+	<div class="row">
+		<div class="col-md-12"><br><br>
+			<a class="links" href="{{url_for('addSubCategory', category_name = category.name)}}">Add New SubCategory</a><br>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+		{% for user in users %}
+			{% if user.id == category.user_id %}
+				<br><hr><author>Created by {{user.name}}</author>
+			{% endif %}
+		{% endfor %}
+		</div>
+	</div>
+{% endif %}
+<br>
+{% include "footer.html" %}
+{% endblock %}

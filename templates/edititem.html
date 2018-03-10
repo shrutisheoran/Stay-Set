@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+{% block content %}
+	<div class="change-button">
+		<h1>Edit Item</h1>
+		<form action="{{url_for('editItem', category_name = corner.name, sub_category_name = sub_category.name, item_name = item.name)}}" method="post">
+			<label>Picture </label>
+			<input type="text" name="image" value="{{item.picture}}"><br><br>
+			<label>Price </label>
+			<input type="text" name="price" value="{{item.price}}"><br><br>
+			<label>Description </label>
+			<input type="text" name="description" value="{{item.description}}"><br><br>
+			<label>Seller Name </label>
+			<input type="text" name="seller_name" value="{{item.seller_name}}"><br><br>
+			<label>Seller Phone no. </label>
+			<input type="text" name="seller_phoneno" value="{{item.seller_phoneno}}"><br><br>
+			<input type="submit" value="SUBMIT">&ensp;
+			<a href="{{url_for('showItem', category_name = corner.name, sub_category_name = sub_category.name, item_name = item.name)}}">Cancel</a>
+		</form>
+	</div>
+{% endblock %}

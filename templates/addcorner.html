@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+{% block content %}
+	<div class="change-button">
+		<h1>Add Corner</h1>
+		<form action="{{url_for('addCorner')}}" method="post">
+			<label>Name</label>
+			<input type="text" name="name" maxlength="80" required><br><br>
+			<label>Picture</label>
+			<input type="text" name="image" required><br><br>
+			<input type="submit" value="Submit">&nbsp&nbsp&nbsp&nbsp
+			<a href="{{url_for('showCatalog')}}">Cancel</a>
+		</form>
+	</div>
+{% endblock %}

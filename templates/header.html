@@ -1,0 +1,88 @@
+<div class="row">
+	<div class="col-md-12">
+		<font face="cursive" size="60px" color="navy"><p align="center">Stay Set</p></font>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class = "flash">
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<ul>
+		        	{% for message in messages %}
+		            	<li> <strong> {{ message }} </strong> </li>
+		        	{% endfor %}
+		        	</ul>
+		    	{% endif %}
+		    {% endwith %}
+		</div>
+	<div>
+<div><br>
+<div class="navbar-styling">
+	<nav class="navbar navbar-inverted">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" type="button"><span class="glyphicon glyphicon-menu-hamburger"></span></button> <a class="navbar-brand" href="#"><span class="brand-color">Corners</span></a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="{{url_for('showCatalog')}}">Home</a>
+					</li><!--The follwing list element is a dropdown menu-->
+				<!--The following list element is a dropdown menu-->
+					{% for category in categories %}
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">{{category.name}}<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li class="elements">
+									<a href="{{url_for('showCorner', category_name = category.name)}}">
+										<img class="image-links" style="border-radius: 400px" src="{{category.picture}}" alt="{{category.name}}" width="200" height="250">
+									</a>
+								</li>
+								{% for sub_category in sub_categories %}
+									{% if category.id == sub_category.category_id %}
+									<li>
+										<a href = "{{url_for('showItems', category_name = category.name, sub_category_name = sub_category.name)}}">
+										{{sub_category.name}}
+										</a>
+									</li>
+									{% endif %}
+								{% endfor %}
+								{% for user in users %}
+									{% if user.id == category.user_id %}
+										<li>
+											<br><author style="margin-left: 19px">Created by {{user.name}}</author>
+										</li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</li>
+					{% endfor %}
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<!--The following list element is a dropdown menu-->
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Contact Me<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li class="elements">
+								<a target="blank" href="https://github.com/shrutisheoran">Github</a>
+							</li>
+							<li class="elements">
+								<a target="blank" href="https://www.linkedin.com/in/shruti-sheoran-1a1225156/">LinkedIn</a>
+							</li>
+						</ul>
+					</li>
+					{% if login %}
+						<li class="nav navbar-nav">
+							<a href="{{url_for('disconnect')}}">Logout (Logged in as {{username}})</a>
+						</li>
+					{% else %}
+						<li class="nav navbar-nav">
+							<a href="{{url_for('showLogin')}}">Login</a>
+						</li>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</nav>
+</div>

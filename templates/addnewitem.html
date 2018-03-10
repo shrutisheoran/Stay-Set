@@ -1,0 +1,22 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="change-button">
+	<h1>Add New Item</h1>
+	<form action="{{url_for('addItem', category_name = corner, sub_category_name = sub_category)}}" method="post">
+		<label>Item Name </label>
+		<input type="text" name="item_name" required><br><br>
+		<label>Picture </label>
+		<input type="text" name="image" required><br><br>
+		<label>Price </label>
+		<input type="text" name="price" required><br><br>
+		<label>Description </label>
+		<input type="text" name="description"><br><br>
+		<label>Seller Name </label>
+		<input type="text" name="seller_name" value="{{username}}"><br><br>
+		<label>Seller Phone no. </label>
+		<input type="text" name="seller_phoneno" required><br><br>
+		<input type="submit" value="SUBMIT">&emsp;
+		<a href="{{url_for('showItems', category_name = corner, sub_category_name = sub_category)}}">Cancel</a>
+	</form>
+</div>
+{% endblock %}

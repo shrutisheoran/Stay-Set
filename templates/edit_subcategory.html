@@ -1,0 +1,12 @@
+{% extends "main.html"%}
+{% block content %}
+	<div class="change-button">
+		<h1>Edit SubCategory</h1>
+		<form action="{{url_for('editSubCategory', category_name = corner, sub_category_name = sub_category.name)}}" method="post">
+			<label>Picture </label>
+			<input type="text" name="image" value="{{sub_category.picture}}"><br><br>
+			<input type="submit" value="Submit">&ensp;
+			<a href="{{url_for('showCorner', category_name = corner, sub_category_name = sub_category.name)}}">Cancel</a>
+		</form>
+	</div>
+{% endblock %}

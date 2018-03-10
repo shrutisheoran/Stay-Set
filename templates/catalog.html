@@ -1,0 +1,36 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<br><br>
+{% set corner = {'value': 'none'} %}
+{% set sub_category = {'value': 'none'} %}
+{% for item in items %}
+<div class = "col-md-4" align="center">
+	<h3>{{item.name}}</h3><br>
+	{% for category in categories %}
+		{% if item.category_id == category.id %}
+			{% if corner.update({'value': category.name}) %}
+        	{% endif %}
+		{% endif %}
+	{% endfor %}
+	{% for subCategory in sub_categories %}
+		{% if item.subCategory_id == subCategory.id %}
+			{% if sub_category.update({'value': subCategory.name}) %}
+        	{% endif %}
+		{% endif %}
+	{% endfor %}
+	<a href="{{url_for('showItem', category_name = corner['value'], sub_category_name = sub_category['value'], item_name = item.name)}}">
+		<img class="image-links home-page-images" src="{{item.picture}}" alt="{{item.name}}" width="250" height="250">
+	</a>
+</div>
+{% endfor %}
+{% if login %}
+	<div class="row">
+		<div class="col-md-12">
+			<br><br>
+			<a class="links" href="{{url_for('addCorner')}}">Add Corner</a>
+		</div>
+	</div>
+{% endif %}
+{% include "footer.html" %}
+{% endblock %}

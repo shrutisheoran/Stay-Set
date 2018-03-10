@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="row">
+	<div class="col-md-12">
+		<h1>{{item.name}}</h1>
+		<img src="{{item.picture}}" alt="{{item.name}}" width="300" height="250">
+		<h2>{{item.price}}</h2>
+		<h3>Seller - {{item.seller_name}}</h3>
+		<h3>Phoneno - {{item.seller_phoneno}}</h3>
+		<span class="mail-link"><a href="mailto:{{email}}?subject=Place Order&message='{{item.name}}, Item Id = {{item.id}}'">Mail Us</a></span><br>
+	</div>
+</div>
+<br>
+{% if login == "creator" %}
+	<div class="row">
+		<div class="col-md-12">
+			<a class="links" href="{{url_for('editItem', category_name = corner, sub_category_name = sub_category, item_name = item.name)}}">Edit Item</a><br><br>
+			<a class="links" href="{{url_for('removeItem', category_name = corner, sub_category_name = sub_category, item_name = item.name)}}">Remove Item</a><br>
+		</div>
+	</div>
+{% endif %}
+{% if login %}
+	<div class="row">
+		<div class="col-md-12">
+		{% for user in users %}
+			{% if user.id == item.user_id %}
+				<br><hr><author>Created by {{user.name}}</author>
+			{% endif %}
+		{% endfor %}
+		</div>
+	</div>
+{% endif %}
+{% include "footer.html" %}
+{% endblock %}
