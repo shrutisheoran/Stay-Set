@@ -1,11 +1,11 @@
 
 # Stay Set
 
-___This project is a shopping web app which uses third party user authentication and also implements user authorisation___
-
 ___URL for the Web App http://35.200.179.153___
 
 ___Check the Linux Server Configuration [here](https://github.com/shrutisheoran/linux-server-setup)___
+
+___This project is a shopping web app which uses third party user authentication and also implements user authorisation___
 
 1. **It displays a list of corners**
 2. **Each corner has a list of subcategories**
